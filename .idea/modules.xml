@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Decorator_Pattern/Decorator_Pattern.iml" filepath="$PROJECT_DIR$/Decorator_Pattern/Decorator_Pattern.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OOPS/OOPS.iml" filepath="$PROJECT_DIR$/OOPS/OOPS.iml" />
       <module fileurl="file://$PROJECT_DIR$/ParkingLot/ParkingLot.iml" filepath="$PROJECT_DIR$/ParkingLot/ParkingLot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TurnedBasedGameAIEngine/TurnedBasedGameAIEngine.iml" filepath="$PROJECT_DIR$/TurnedBasedGameAIEngine/TurnedBasedGameAIEngine.iml" />
       <module fileurl="file://$PROJECT_DIR$/design_pattern.iml" filepath="$PROJECT_DIR$/design_pattern.iml" />
     </modules>
   </component>

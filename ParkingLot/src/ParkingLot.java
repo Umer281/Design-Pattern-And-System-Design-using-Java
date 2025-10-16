@@ -24,7 +24,15 @@ public class ParkingLot {
         return instance;
     }
 
-    public  boolean parkVehicle(Vehicle vehicle, ParkingsSpot spot) {
+    public  boolean parkVehicle(Vehicle vehicle) {
+        for(ParkingsSpot spot: spots){
+            if(spot.isAvailable() && spot.canFitVehicle(vehicle)){
+                parkedVehilces.put(vehicle,spot);
+                spot.parkVehicle();
+                return true;
+
+            }
+        }
         return  false;
     }
 
@@ -35,13 +43,30 @@ public class ParkingLot {
           parkedVehilces.remove(vehicle);
       }
 
-
     }
 
+    public int getNumberOfAvailableSpots(){
+        int availableSpots =0;
+        for(ParkingsSpot spot: spots){
+            if(spot.isAvailable()){
+                availableSpots++;
+            }
+        }
+        return availableSpots;
+    }
 
-
-
-
-
+    public void addParkingSpot(ParkingsSpot spot){
+        if(spots.size() < capacity ){
+            spots.add(spot);
+        }else{
+            System.out.println("Parking space is full");
+        }
+    }
 
 }
+
+// function requirement
+// should assign parking spot and spot id to to vehicle
+// system should show if parking spot is available (is capacity full)
+// once vehicle is leaved system should make spot free
+// system should support to park different type of vehicles

@@ -1,16 +1,21 @@
-public class ParkingsSpot {
+public abstract class ParkingsSpot {
 
-    int id;
+    int spotId;
     boolean isAvailable;
 
+
     ParkingsSpot(int id) {
-        this.id =id;
+        this.spotId =id;
         this.isAvailable = true;
     }
 
+    public abstract boolean   canFitVehicle(Vehicle vehicle);
 
-    public void parkVehicle(){
-         this.isAvailable = false;
+    public void parkVehicle() {
+        this.isAvailable = false;
+    }
+    public boolean  isAvailable(){
+         return this.isAvailable ;
     }
 
     public void freeVehicle() {
