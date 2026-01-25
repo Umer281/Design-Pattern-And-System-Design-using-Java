@@ -122,7 +122,7 @@ public class CacheService{
 
 
 // 1 billion users
-// daily active users could be 200 million =n 20 crores
+// daily active users could be 200 million = 20 crores
 // 5 * 200 million  = 1 billion tweets considering 80% text, 20% media
 // 50 bytes * 5 * 200 million , 1tb
 
@@ -423,6 +423,7 @@ class Resturant{
     String name;
     Location location;
     List<MenuItems>  menu;
+    String status = "Open";
 
 
     Resturant(int id,
@@ -439,6 +440,10 @@ class Resturant{
      }
     public List<MenuItems> getMenuItems (){
         return this.menu;
+    }
+
+    public String getStatus() {
+        return status;
     }
 
 }
@@ -573,6 +578,41 @@ class OrderService {
         }
         return null;
     }
+}
+
+
+
+class ResturantService{
+    List<Resturant> allResturants = new ArrayList<>();
+
+
+    public Resturant  getResturantByLocation(Location location){
+        Resturant nearestRes;
+        int minDistance = Integer.MAX_VALUE;
+        for(Resturant resturant: allResturants ){
+              if(resturant.getStatus() == "Open"){
+                  int currDistance = calculateDistance(resturant.location, location);
+                  if(minDistance > currDistance){
+                      nearestRes = resturant;
+                      minDistance = currDistance;
+                  }
+
+              }
+
+        }
+
+        return nearestRes;
+    }
+
+    public int calculateDistance(Location l1, Location l2){
+        return  Math.sqrt(Math.pow(l1.getLat() - l2.getLat(), 2) + Math.pow(l1.getLon() - l2.getLon(), 2) )
+    }
+
+
+    public void addResturant(Resturant resturant){
+             allResturants.add(resturant);
+    }
+
 }
 
 
